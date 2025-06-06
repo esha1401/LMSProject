@@ -1,4 +1,4 @@
-﻿using Azure.Messaging.EventHubs.Producer;
+using Azure.Messaging.EventHubs.Producer;
 using Azure.Storage.Blobs;
 using EduSyncBackend.Data;
 using EduSyncBackend.Middleware;
@@ -37,24 +37,14 @@ builder.Services.AddAutoMapper(typeof(Program));
 // Add HttpClient
 builder.Services.AddHttpClient();
 
-// Configure CORS for both local and deployed frontend
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
     {
-        policy.WithOrigins("https://projectbackend-gcghfwfkdcerhsbj.eastus2-01.azurewebsites.net")
-              .AllowAnyHeader()
-              .AllowAnyMethod();
-    });
-
-    options.AddPolicy("AllowAll", policy =>
-    {
-        policy.AllowAnyOrigin()
-              .AllowAnyMethod()
-              .AllowAnyHeader();
         policy.WithOrigins(
             "http://localhost:3000",
-            "https://brave-ocean-0460e180f.6.azurestaticapps.net"
+            "https://brave-ocean-0460e180f.6.azurestaticapps.net/"
         )
         .AllowAnyHeader()
         .AllowAnyMethod();
@@ -133,7 +123,7 @@ var app = builder.Build();
 // Middleware pipeline
 app.UseMiddleware<ErrorHandlerMiddleware>();
 
-// CORS
+
 app.UseCors("AllowFrontend");
 
 // Swagger
