@@ -62,7 +62,7 @@ steps:
 
 
 
-- task: AzureWebApp@1
+- task: ProjectBackend
 
   inputs:
 
