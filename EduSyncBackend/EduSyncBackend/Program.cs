@@ -42,7 +42,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
     {
-        policy.WithOrigins("https://edusync-frontend-brijesh-f7byhagudcgpdfh6.eastus2-01.azurewebsites.net/")
+        policy.WithOrigins("https://projectbackend-gcghfwfkdcerhsbj.eastus2-01.azurewebsites.net")
               .AllowAnyHeader()
               .AllowAnyMethod();
     });
@@ -54,7 +54,7 @@ builder.Services.AddCors(options =>
               .AllowAnyHeader();
         policy.WithOrigins(
             "http://localhost:3000",
-            "https://red-meadow-0ab5a720f.6.azurestaticapps.net"
+            "https://brave-ocean-0460e180f.6.azurestaticapps.net"
         )
         .AllowAnyHeader()
         .AllowAnyMethod();
