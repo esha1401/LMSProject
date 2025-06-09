@@ -44,7 +44,7 @@ builder.Services.AddCors(options =>
     {
         policy.WithOrigins(
             "http://localhost:3000",
-            "https://brave-ocean-0460e180f.6.azurestaticapps.net/"
+            "https://brave-ocean-0460e180f.6.azurestaticapps.net"
         )
         .AllowAnyHeader()
         .AllowAnyMethod();
